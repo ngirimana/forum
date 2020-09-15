@@ -18,8 +18,10 @@
                         <input type="text" class="form-control" name="subject" value="">
                     </div>
                     <div class="form-group">
-                        <label for="contact">Contact</label>
-                        <textarea name="content" id="content" cols="5" rows="5" class="form-control"></textarea>
+                        <label for="content">Content</label>
+                        <input id="content" type="hidden" name="content">
+                        <trix-editor input="content"></trix-editor>
+                        
                     </div>
                     <div class="form-group">
                         <label for="contact">Channel</label>
@@ -29,9 +31,16 @@
                             @endforeach
                         </select>
                     </div>
-                    <button class="btn btn-success">Create Discussion</button>
+                    <button type="submit" class="btn btn-success">Create Discussion</button>
                 </form>
         </div>
+        
     
 </div>
+@endsection
+@section('css')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/trix/1.0.0/trix.css">
+@endsection
+@section('js')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/trix/1.0.0/trix.js"></script>
 @endsection
