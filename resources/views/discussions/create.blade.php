@@ -11,15 +11,15 @@
                     @csrf
                     <div class="form-group">
                         <label for="title">Title</label>
-                        <input type="text" class="form-control" name="title" value="">
+                        <input type="text" class="form-control" name="title" value="" required>
                     </div>
                     <div class="form-group">
                         <label for="subject">Subject</label>
-                        <input type="text" class="form-control" name="subject" value="">
+                        <input type="text" class="form-control" name="subject" value="" required>
                     </div>
                     <div class="form-group">
                         <label for="content">Content</label>
-                        <input id="content" type="hidden" name="content">
+                        <input id="content" type="hidden" name="content" required>
                         <trix-editor input="content"></trix-editor>
                         
                     </div>
@@ -27,11 +27,11 @@
                         <label for="contact">Channel</label>
                         <select name="channel" id="channel" class="form-control">
                             @foreach ($channels as $channel)
-                        <option value="{{$channel->id}}">{{$channel->name}}</option>
+                        <option value="{{$channel->id}}" name="channel">{{$channel->name}}</option>
                             @endforeach
                         </select>
                     </div>
-                    <button type="submit" class="btn btn-success">Create Discussion</button>
+                    <input type="submit" class="btn btn-success" value="Create Discussion"></button>
                 </form>
         </div>
         
