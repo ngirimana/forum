@@ -31,7 +31,7 @@
                             @endforeach
                         </select>
                     </div>
-                    <input type="submit" class="btn btn-success" value="Create Discussion"></button>
+                    <input type="submit" class="btn btn-success" value="Create Discussion">
                 </form>
         </div>
         

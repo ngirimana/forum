@@ -65,7 +65,6 @@ class DiscussionsController extends Controller
     {
     
          Discussion::create([
-            
             'title' =>$data['title'],
             'user_id' =>Auth()->user()->id,
             'subject' => $data['subject'],
@@ -83,9 +82,10 @@ class DiscussionsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Discussion $discussion)
     {
-        //
+        return view('discussions.show',['discussion'=>$discussion]);
+
     }
 
     /**

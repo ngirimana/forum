@@ -17,6 +17,13 @@ class Discussion extends Model
        'user_id', 'title', 'subject', 'content','slug','channel_id'
     ];
     public function user(){
-        return $this->belongsTo(User::class,'user_id');
+        return $this->belongsTo('App\Models\User','user_id');
+    }
+    public function replies(){
+        return $this->hasMany('App\Models\Reply');
+    }
+    public function getRouteKeyName(){
+        return 'slug';
     }
 }
+
