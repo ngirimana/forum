@@ -14,5 +14,6 @@
 </div>
     
 @endforeach
-{{-- {{$discussions->links()}} --}}
+<div class="" style="height: 100">{{$discussions->links("pagination::bootstrap-4")}}</div>
+
 @endsection
