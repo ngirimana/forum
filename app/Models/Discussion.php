@@ -14,6 +14,9 @@ class Discussion extends Model
      * @var array
      */
     protected $fillable = [
-        'title', 'subject', 'content','channel_id'
+       'user_id', 'title', 'subject', 'content','slug','channel_id'
     ];
+    public function user(){
+        return $this->belongsTo(User::class,'user_id');
+    }
 }

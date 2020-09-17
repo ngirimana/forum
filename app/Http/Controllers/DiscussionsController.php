@@ -22,9 +22,10 @@ class DiscussionsController extends Controller
      */
     public function index()
     {
-        return view('discussions\index',[
-            'discussions'=> Discussion::paginate(5)
-        ]);
+        $discussions= Discussion::orderBy('created_at','desc')->paginate(5);
+        
+        return view('discussions\index')->with('discussions',$discussions);
+
     }
 
     /**
@@ -62,17 +63,18 @@ class DiscussionsController extends Controller
      */
     public function store(Request $data)
     {
-       
+    
          Discussion::create([
-            'title' => $data['title'],
-            'user_id' =>auth()->user()->id,
+            
+            'title' =>$data['title'],
+            'user_id' =>Auth()->user()->id,
             'subject' => $data['subject'],
             'content' => $data['content'],
             'channel_id' => $data['channel'],
             'slug'=> Str::slug($data['title']),
         ]);
         session()->flash('success','Discussion Posted Successfully');
-        return redirect()->route('discussion.index');
+        return redirect()->route('discussions.index');
     }
 
     /**
