@@ -107,6 +107,8 @@
         @endif
     </div>
     <script src="{{ asset('js/app.js') }}" ></script>
+    {{-- <script src="{{ asset('js/trix_attachments.js') }}" ></script> --}}
     @yield('js')
+
 </body>
 </html>
