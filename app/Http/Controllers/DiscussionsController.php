@@ -112,9 +112,13 @@ class DiscussionsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Discussion $discussion)
     {
-        //
+        $singleDiscussion=Discussion::where('slug', $discussion->slug)->first();
+        if(!Auth()->user()->id==$discussion->user_id){
+            return redirect('/discussions')->with('error','Unauthorized Page');
+        }
+        return view('discussions.edit')->with('post',$singleDiscussion);
     }
 
     /**
@@ -124,9 +128,16 @@ class DiscussionsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $data, Discussion $discussion)
     {
-        //
+        Discussion::update([
+            'title' =>$data['title'],
+            'subject' => $data['subject'],
+            'content' => $data['content'],
+            'channel_id' => $data['channel'],
+            'slug'=> Str::slug($data['title']),
+        ]);
+        return redirect('/discussions')->with('success','Post updated Successfully');
     }
 
     /**
