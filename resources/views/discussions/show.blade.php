@@ -33,7 +33,7 @@
     Add  comment
   </div>
   <div class="card-body">
-  <form action="{{route('replies.store',$discussion->slug)}}" method="post">
+  <form action="{{route('replies.store',$discussion->slug)}}" method="post"  >
       @csrf
       <div class="form-group">
         <label for="title">Full Name</label>
@@ -45,19 +45,14 @@
   </div>
   <div class="form-group">
     <label for="content">Content</label>
-    <input id="content" type="hidden" name="content" required>
+   
+    <textarea class="form-control" id="summary-ckeditor" name="content"></textarea>
 
-    <trix-editor input="content"></trix-editor>
+    
     
     </div>
     <input type="submit" class="btn btn-sm btn-success" value="Add Comment">
     </form>
   </div>
 </div>
-@endsection
-@section('css')
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/trix/1.2.4/trix.css">
-@endsection
-@section('js')
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/trix/1.2.4/trix.js"></script>
 @endsection

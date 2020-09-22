@@ -7,7 +7,7 @@
         <div class="card-header">{{ __('Add Discussion') }}</div>
 
             <div class="card-body">
-                <form action="{{route('discussions.store')}}" method="POST">
+                <form action="{{route('discussions.store')}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                         <label for="title">Title</label>
@@ -19,8 +19,7 @@
                     </div>
                     <div class="form-group">
                         <label for="content">Content</label>
-                        <input id="content" type="hidden" name="content" required>
-                        <trix-editor input="content"></trix-editor>
+                        <textarea class="form-control" id="summary-ckeditor" name="content"></textarea>
                         
                     </div>
                     <div class="form-group">
@@ -38,9 +37,4 @@
     
 </div>
 @endsection
-@section('css')
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/trix/1.2.4/trix.css">
-@endsection
-@section('js')
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/trix/1.2.4/trix.js"></script>
-@endsection
+

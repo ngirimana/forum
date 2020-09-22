@@ -18,7 +18,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    @yield('css')
+    
 </head>
 <body>
     <div id="app">
@@ -107,8 +107,15 @@
         @endif
     </div>
     <script src="{{ asset('js/app.js') }}" ></script>
-    {{-- <script src="{{ asset('js/trix_attachments.js') }}" ></script> --}}
-    @yield('js')
+    
+   
+    <script src="https://cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
+    <script>
+       CKEDITOR.replace( 'summary-ckeditor', {
+    filebrowserUploadUrl: "{{route('discussions.upload', ['_token' => csrf_token() ])}}",
+    filebrowserUploadMethod: 'form'
+});
+</script>
 
 </body>
 </html>

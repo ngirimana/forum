@@ -24,4 +24,6 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::resource('discussions',DiscussionsController::class);
+Route::post('discussions/upload', [DiscussionsController::class,'upload'])->name('discussions.upload');
 Route::resource('discussions/{discussion}/replies',RepliesController::class);
+
