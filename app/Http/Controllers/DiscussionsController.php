@@ -149,8 +149,13 @@ class DiscussionsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Discussion $discussion)
     {
-        //
+       $singleDiscussion=Discussion::where('slug', $discussion->slug)->first();
+        if(Auth()->user()->id!=$singleDiscussion->user_id){
+            return redirect('/discussions')->with('error','Unauthorized Page');
+        }
+        $singleDiscussion->delete();
+        return redirect('/discussions')->with('success','Discussion deleted Successfully');
     }
 }
