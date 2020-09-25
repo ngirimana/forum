@@ -20,6 +20,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/welcome.css') }}" rel="stylesheet">
     
+    
 </head>
 <body>
     <div id="app">
@@ -81,7 +82,7 @@
                         <span class="sr-only">Next</span>
                     </a>
               </div>
-                <div class="col-md-4">
+                <div class="col-md-4 latest">
                     <span class="font-weight-bold " >Latest storries</span>
                     @foreach ($latestDiscussions as $latestDiscussion)
                     <a href="{{route('discussions.show',$latestDiscussion->slug)}}">
@@ -89,7 +90,7 @@
                        
                             <div class="card-body ">
                                 <div class="row">
-                                    <div class="col-md-4">
+                                    <div class="col-md-4 card-for-latest">
                                         <img class="card-image" src="{{ asset('images/user.jpg') }}" alt="First slide">
                                     </div>
                                     <div class="col-md-8">
@@ -105,7 +106,7 @@
             </div>
             <div class="row">
                 @foreach ($discussions as $discussion)
-                <div class="col-md-4 my-4">
+                <div class="col-md-3 my-4">
                     <a href="{{route('discussions.show',$discussion->slug)}}">
                     <div class="card">
                         <div class="card-header">
@@ -124,8 +125,77 @@
 
             
         </main>
+        <footer >
+            <div class="container my-4">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card"> 
+                            <div class="card-header">Location</div>
+                            <div class="card-body card-body-cascade text-center">
+
+                                <!--Google map-->
+                                <div id="map-container-google-8" class="z-depth-1-half map-container-5" style="height: 300px">
+                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2570.661289154739!2d30.101052635985546!3d-1.966796629864029!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19dca65025fefa7f%3A0x62c2f348e1b93617!2sUniversity%20of%20Tourism%2C%20Technology%20and%20Business%20Studies%20(UTB)!5e0!3m2!1sen!2srw!4v1601039313614!5m2!1sen!2srw" width="400" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                                </div>
+                        
+                              </div>
+                        </div>
+                        
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card"> 
+                            <div class="card-header">Contact us</div>
+                            <div class="card-body card-body-cascade text-center">
+                                <form action="" method="POST" enctype="multipart/form-data">
+                                    @csrf
+                                    <div class="form-group">
+                                    
+                                        <input type="text" class="form-control" name="title" value="" placeholder="Enter your Full Name" required>
+                                    </div>
+                                    <div class="form-group">
+                                   
+                                        <input type="text" class="form-control" name="subject" value=""  placeholder="Enter Email" required>
+                                    </div>
+                                    <div class="form-group">
+                                    
+                                        <textarea class="form-control" cols="10" rows="6" name="content" placeholder="Enter Your Message"></textarea>
+                                    </div>
+                                    <input type="submit" class="btn btn-success" value="Send Message">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <section  class=" container ">
+                    <div class="row my-4 contact-us ">
+                       <div class="col-md-4 my-4">
+                           <i class="fas fa-hotel fa-3x d-flex justify-content-center"></i>
+                           <h3 class="d-flex justify-content-center">Location</h3>
+                           <p class="d-flex justify-content-center">
+                              KN 7 Ave ,Kigali Rwanda
+                           </p>
+                           </div>
+                           <div class="col-md-4 my-4">
+                               <i class="fas fa-phone fa-3x d-flex justify-content-center"></i>
+                               <h3 class="d-flex justify-content-center">Phone Number</h3>
+                               <p class="d-flex justify-content-center">
+                                   +250781475108
+                               </p>
+                           </div>
+                           <div class="col-md-4 my-4">
+                               <i class="fas fa-envelope fa-3x  d-flex justify-content-center"></i>
+                               <h3 class="d-flex justify-content-center">Email Address</h3>
+                               <p class="d-flex justify-content-center">
+                                   info@kuranga.co
+                               </p>
+                           </div>    
+                    </div>
+                </section>
+            </div>
+        </footer>
         
     </div>
+    <script src="https://kit.fontawesome.com/1ae30b6763.js"></script>
     <script src="{{ asset('js/app.js') }}" ></script>
     
    

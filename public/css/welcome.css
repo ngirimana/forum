@@ -4,6 +4,13 @@
 .card-image{
     width: 100px;
 }
+.latest{
+    border: 1px solid rgb(78, 80, 78);
+}
+.card-for-latest{
+    height: 150px;
+    width: 100px;
+}
 a{
     color:black;
     text-decoration: none;
@@ -13,4 +20,12 @@ a:hover{
 }
 .discussion-card{
     width: 100%;
+}
+.contact-us{
+    color: white;
+    background-color: black;
+}
+footer{
+    background-color: white;
+    
 }

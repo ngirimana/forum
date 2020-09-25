@@ -29,6 +29,6 @@ class AppServiceProvider extends ServiceProvider
         //
         View::share('channels',Channel::all());
         view::share('latestDiscussions',Discussion::orderBy('created_at','DESC')->take(3)->get());
-        View::share('discussions',Discussion::paginate(12));
+        View::share('discussions',Discussion::paginate(8));
     }
 }
