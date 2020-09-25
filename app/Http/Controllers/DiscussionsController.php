@@ -22,7 +22,7 @@ class DiscussionsController extends Controller
      */
     public function index()
     {
-        $discussions= Discussion::orderBy('created_at','desc')->paginate(5);
+        $discussions= Discussion::filterByChannels()->orderBy('created_at','DESC')->paginate(3);
         
         return view('discussions\index')->with('discussions',$discussions);
 
@@ -158,4 +158,5 @@ class DiscussionsController extends Controller
         $singleDiscussion->delete();
         return redirect('/discussions')->with('success','Discussion deleted Successfully');
     }
+    
 }

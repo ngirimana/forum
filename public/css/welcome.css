@@ -1,0 +1,16 @@
+.latest-story{
+    height: 145Px !important;
+}
+.card-image{
+    width: 100px;
+}
+a{
+    color:black;
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: none;
+}
+.discussion-card{
+    width: 100%;
+}

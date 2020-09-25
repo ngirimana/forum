@@ -45,11 +45,7 @@
   </div>
   <div class="form-group">
     <label for="content">Content</label>
-   
     <textarea class="form-control" id="summary-ckeditor" name="content"></textarea>
-
-    
-    
     </div>
     <input type="submit" class="btn btn-sm btn-success" value="Add Comment">
     </form>

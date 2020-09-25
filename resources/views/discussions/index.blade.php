@@ -13,6 +13,6 @@
 </div>
     
 @endforeach
-<div class="" style="height: 100">{{$discussions->links("pagination::bootstrap-4")}}</div>
+{{$discussions->appends(['channel'=>request()->query('channel')])->links("pagination::bootstrap-4")}}
 
 @endsection
