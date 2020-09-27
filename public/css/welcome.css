@@ -2,30 +2,41 @@
     height: 145Px !important;
 }
 .card-image{
-    width: 100px;
+    width: 100px !important;
 }
 .latest{
-    border: 1px solid rgb(78, 80, 78);
+    border: 1px solid rgb(78, 80, 78) !important;
 }
 .card-for-latest{
-    height: 150px;
-    width: 100px;
+    height: 150px !important;
+    width: 100px !important;
 }
 a{
     color:black;
-    text-decoration: none;
+    text-decoration: none !important;
 }
 a:hover{
-    text-decoration: none;
+    text-decoration: none !important;
 }
 .discussion-card{
-    width: 100%;
+    width: 100% ;
 }
 .contact-us{
-    color: white;
-    background-color: black;
-}
-footer{
-    background-color: white;
+    color: white !important;
+    background-color: #123f64 !important;
     
 }
+footer{
+    background-color: white !important;
+    
+}
+.navigator{
+    color: white !important;
+    background-color: #123f64 !important;
+}
+.copy-right{
+    background-color: royalblue;
+    color: white;
+}
+ 
+

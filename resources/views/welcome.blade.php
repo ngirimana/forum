@@ -24,9 +24,9 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light  shadow-sm navigator">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand navigator" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -40,12 +40,12 @@
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
+                    <ul class="navbar-nav ml-auto ">
                         <!-- Authentication Links -->
                    
                         @foreach ($channels as $channel)
-                        <li class="nav-item">
-                        <a href="{{route('discussions.index')}}?channel={{$channel->slug}}" class="nav-link">  {{$channel->name}}</a>
+                        <li class="nav-item ">
+                        <a href="{{route('discussions.index')}}?channel={{$channel->slug}}" class="nav-link navigator">  {{$channel->name}}</a>
                         </li>
                     @endforeach
                  
@@ -65,12 +65,21 @@
                     <div class="carousel-inner">
                         <div class="carousel-item active">
                             <img class="d-block w-100" src="{{ asset('slide_images/1.jpg') }}" alt="First slide">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>First silse</h5>
+                            </div>
                         </div>
                         <div class="carousel-item">
                             <img class="d-block w-100" src="{{ asset('slide_images/2.jpeg') }}" alt="Second slide">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Second silse</h5>
+                            </div>
                         </div>
                         <div class="carousel-item">
                             <img class="d-block w-100" src="{{ asset('slide_images/3.jpg')}}" alt="Third slide">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Third silse</h5>
+                            </div>
                         </div>
                     </div>
                     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -106,7 +115,7 @@
             </div>
             <div class="row">
                 @foreach ($discussions as $discussion)
-                <div class="col-md-3 my-4">
+                <div class="col-md-3 my-4 ">
                     <a href="{{route('discussions.show',$discussion->slug)}}">
                     <div class="card">
                         <div class="card-header">
@@ -126,21 +135,18 @@
             
         </main>
         <footer >
-            <div class="container my-4">
-                <div class="row">
+            <div class="container">
+                <div class="row my-4">
                     <div class="col-md-6">
                         <div class="card"> 
                             <div class="card-header">Location</div>
                             <div class="card-body card-body-cascade text-center">
-
                                 <!--Google map-->
                                 <div id="map-container-google-8" class="z-depth-1-half map-container-5" style="height: 300px">
                                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2570.661289154739!2d30.101052635985546!3d-1.966796629864029!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19dca65025fefa7f%3A0x62c2f348e1b93617!2sUniversity%20of%20Tourism%2C%20Technology%20and%20Business%20Studies%20(UTB)!5e0!3m2!1sen!2srw!4v1601039313614!5m2!1sen!2srw" width="400" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                                    </div>
                                 </div>
-                        
-                              </div>
                         </div>
-                        
                     </div>
                     <div class="col-md-6">
                         <div class="card"> 
@@ -149,15 +155,12 @@
                                 <form action="" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-group">
-                                    
                                         <input type="text" class="form-control" name="title" value="" placeholder="Enter your Full Name" required>
                                     </div>
                                     <div class="form-group">
-                                   
                                         <input type="text" class="form-control" name="subject" value=""  placeholder="Enter Email" required>
                                     </div>
                                     <div class="form-group">
-                                    
                                         <textarea class="form-control" cols="10" rows="6" name="content" placeholder="Enter Your Message"></textarea>
                                     </div>
                                     <input type="submit" class="btn btn-success" value="Send Message">
@@ -166,32 +169,36 @@
                         </div>
                     </div>
                 </div>
-                <section  class=" container ">
-                    <div class="row my-4 contact-us ">
-                       <div class="col-md-4 my-4">
-                           <i class="fas fa-hotel fa-3x d-flex justify-content-center"></i>
-                           <h3 class="d-flex justify-content-center">Location</h3>
-                           <p class="d-flex justify-content-center">
-                              KN 7 Ave ,Kigali Rwanda
-                           </p>
-                           </div>
-                           <div class="col-md-4 my-4">
-                               <i class="fas fa-phone fa-3x d-flex justify-content-center"></i>
-                               <h3 class="d-flex justify-content-center">Phone Number</h3>
-                               <p class="d-flex justify-content-center">
-                                   +250781475108
-                               </p>
-                           </div>
-                           <div class="col-md-4 my-4">
-                               <i class="fas fa-envelope fa-3x  d-flex justify-content-center"></i>
-                               <h3 class="d-flex justify-content-center">Email Address</h3>
-                               <p class="d-flex justify-content-center">
-                                   info@kuranga.co
-                               </p>
-                           </div>    
-                    </div>
-                </section>
             </div>
+            <div class="contact-us">
+            <section  class=" container ">
+                <div class="row   contact-us ">
+                   <div class="col-md-4 my-4">
+                       <i class="fa fa-map-marker fa-3x d-flex justify-content-center mb-2" aria-hidden="true"></i>
+                      <p class="d-flex justify-content-center">
+                          KN 7 Ave ,Kigali Rwanda
+                       </p>
+                       </div>
+                       <div class="col-md-4 my-4">
+                           <i class="fas fa-phone fa-3x d-flex justify-content-center mb-2"></i>
+                          
+                           <p class="d-flex justify-content-center">
+                               +250781475108
+                           </p>
+                       </div>
+                       <div class="col-md-4 my-4">
+                           <i class="fas fa-envelope fa-3x  d-flex justify-content-center mb-2"></i>
+                           
+                           <p class="d-flex justify-content-center">
+                               info@kuranga.co
+                           </p>
+                       </div>    
+                </div>
+            </section>
+            </div>
+     
+            <div class="d-flex justify-content-center copy-right"> <h3>  Kuranga &copy 2020</h3> </div>
+            
         </footer>
         
     </div>

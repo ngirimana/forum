@@ -22,37 +22,36 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a href="/" class="nav-link"> Home</a>
-                        </li>
-                   
-                        @foreach ($channels as $channel)
-                        <li class="nav-item">
-                        <a href="{{route('discussions.index')}}?channel={{$channel->slug}}" class="nav-link">  {{$channel->name}}</a>
-                        </li>
-                    @endforeach
-                 
-                    </ul>
+        <div id="app">
+            <nav class="navbar navbar-expand-md navbar-light  shadow-sm navigator">
+                <div class="container">
+                    <a class="navbar-brand navigator" href="{{ url('/') }}">
+                        {{ config('app.name', 'Laravel') }}
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+    
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <!-- Left Side Of Navbar -->
+                        <ul class="navbar-nav mr-auto">
+    
+                        </ul>
+    
+                        <!-- Right Side Of Navbar -->
+                        <ul class="navbar-nav ml-auto ">
+                            <!-- Authentication Links -->
+                       
+                            @foreach ($channels as $channel)
+                            <li class="nav-item ">
+                            <a href="{{route('discussions.index')}}?channel={{$channel->slug}}" class="nav-link navigator">  {{$channel->name}}</a>
+                            </li>
+                        @endforeach
+                     
+                        </ul>
+                    </div>
                 </div>
-            </div>
-        </nav>
+            </nav>
         @if(!in_array(request()->path(),['login','register','password/email','password/reset']))
         <main class="container py-4">
             <div class="row">
@@ -89,7 +88,7 @@
         @endif
         <footer >
             <div class="container my-4">
-                <div class="row">
+                <div class="row my-4">
                     <div class="col-md-6">
                         <div class="card"> 
                             <div class="card-header">Location</div>
@@ -128,32 +127,37 @@
                         </div>
                     </div>
                 </div>
-                <section  class=" container ">
-                    <div class="row my-4 contact-us ">
-                       <div class="col-md-4 my-4">
-                           <i class="fas fa-hotel fa-3x d-flex justify-content-center"></i>
-                           <h3 class="d-flex justify-content-center">Location</h3>
-                           <p class="d-flex justify-content-center">
-                              KN 7 Ave ,Kigali Rwanda
-                           </p>
-                           </div>
-                           <div class="col-md-4 my-4">
-                               <i class="fas fa-phone fa-3x d-flex justify-content-center"></i>
-                               <h3 class="d-flex justify-content-center">Phone Number</h3>
-                               <p class="d-flex justify-content-center">
-                                   +250781475108
-                               </p>
-                           </div>
-                           <div class="col-md-4 my-4">
-                               <i class="fas fa-envelope fa-3x  d-flex justify-content-center"></i>
-                               <h3 class="d-flex justify-content-center">Email Address</h3>
-                               <p class="d-flex justify-content-center">
-                                   info@kuranga.co
-                               </p>
-                           </div>    
-                    </div>
-                </section>
             </div>
+            
+                <div class="contact-us">
+                    <section  class=" container ">
+                        <div class="row   contact-us ">
+                           <div class="col-md-4 my-4">
+                               <i class="fa fa-map-marker fa-3x d-flex justify-content-center mb-2" aria-hidden="true"></i>
+                              <p class="d-flex justify-content-center">
+                                  KN 7 Ave ,Kigali Rwanda
+                               </p>
+                               </div>
+                               <div class="col-md-4 my-4">
+                                   <i class="fas fa-phone fa-3x d-flex justify-content-center mb-2"></i>
+                                  
+                                   <p class="d-flex justify-content-center">
+                                       +250781475108
+                                   </p>
+                               </div>
+                               <div class="col-md-4 my-4">
+                                   <i class="fas fa-envelope fa-3x  d-flex justify-content-center mb-2"></i>
+                                   
+                                   <p class="d-flex justify-content-center">
+                                       info@kuranga.co
+                                   </p>
+                               </div>    
+                        </div>
+                    </section>
+                    </div>
+             
+                    <div class="d-flex justify-content-center copy-right"> <h3>  Kuranga &copy 2020</h3> </div>
+            
         </footer>
     </div>
     <script src="{{ asset('js/app.js') }}" ></script>
