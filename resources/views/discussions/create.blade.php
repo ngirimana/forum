@@ -30,6 +30,9 @@
                             @endforeach
                         </select>
                     </div>
+                    <div class="form-group">
+                        <input type="file" name="cover_image" id="">
+                    </div>
                     <input type="submit" class="btn btn-success" value="Create Discussion">
                 </form>
         </div>

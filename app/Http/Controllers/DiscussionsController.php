@@ -5,6 +5,7 @@ use App\Http\Requests\CreateDiscussionRequest;
 use App\Models\Discussion;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -41,6 +42,7 @@ class DiscussionsController extends Controller
             'subject' => ['required', 'string', 'max:255'],
             'content' => ['required', 'string',],
             'channel' => ['required', 'string', 'max:255'],
+            'cover_image'=>['image|max:1999']
             
         ]);
     }
@@ -63,15 +65,37 @@ class DiscussionsController extends Controller
      */
     public function store(Request $data)
     {
-    
+        //handle file upload
+        if($data->hasFile('cover_image')){
+            //file name with extension
+            $fileNameWithExt=$data->file('cover_image')->getClientOriginalName();
+            //Get file name
+            $fileName=pathinfo($fileNameWithExt,PATHINFO_FILENAME);
+            // Get the extension
+            $extension=$data->file('cover_image')->getClientOriginalExtension();
+            // get filename to store
+            $fileNameToStore = $fileName.'_'.time().'.'.$extension;
+            //upload images
+            $data->file('cover_image')->move(public_path('cover_images'), $fileNameToStore);
+
+           //$path=Storage::putFile('public/cover_images', $data->file($fileNameToStore));
+        //    $path = Storage::putFileAs('public/cover_images', $data->file('cover_image'));
+
+        }else{
+            $fileNameToStore='noimage.jpg';
+        }
          Discussion::create([
             'title' =>$data['title'],
             'user_id' =>Auth()->user()->id,
             'subject' => $data['subject'],
             'content' => $data['content'],
             'channel_id' => $data['channel'],
+            'cover_image'=> $fileNameToStore,
             'slug'=> Str::slug($data['title']),
+
+            
         ]);
+        // return $path;
         session()->flash('success','Discussion Posted Successfully');
         return redirect()->route('discussions.index');
     }

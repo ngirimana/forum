@@ -3,6 +3,7 @@
 }
 .card-image{
     width: 100px !important;
+    height: 70%;
 }
 .latest{
     border: 1px solid rgb(78, 80, 78) !important;

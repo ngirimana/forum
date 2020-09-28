@@ -40,8 +40,8 @@
     
                         <!-- Right Side Of Navbar -->
                         <ul class="navbar-nav ml-auto ">
-                            <!-- Authentication Links -->
-                       
+                            <li class="nav-item "> <a href="/" class="nav-link navigator">Home</a></li>
+                            <li class="nav-item "> <a href="http://kuranga.co/" class="nav-link navigator">Website</a></li>
                             @foreach ($channels as $channel)
                             <li class="nav-item ">
                             <a href="{{route('discussions.index')}}?channel={{$channel->slug}}" class="nav-link navigator">  {{$channel->name}}</a>
@@ -128,25 +128,25 @@
                     </div>
                 </div>
             </div>
-            
+
                 <div class="contact-us">
                     <section  class=" container ">
                         <div class="row   contact-us ">
                            <div class="col-md-4 my-4">
-                               <i class="fa fa-map-marker fa-3x d-flex justify-content-center mb-2" aria-hidden="true"></i>
+                               <i class="fa fa-map-marker fa-3x d-flex justify-content-center my-4" aria-hidden="true"></i>
                               <p class="d-flex justify-content-center">
                                   KN 7 Ave ,Kigali Rwanda
                                </p>
                                </div>
                                <div class="col-md-4 my-4">
-                                   <i class="fas fa-phone fa-3x d-flex justify-content-center mb-2"></i>
+                                   <i class="fas fa-phone fa-3x d-flex justify-content-center my-4"></i>
                                   
                                    <p class="d-flex justify-content-center">
                                        +250781475108
                                    </p>
                                </div>
                                <div class="col-md-4 my-4">
-                                   <i class="fas fa-envelope fa-3x  d-flex justify-content-center mb-2"></i>
+                                   <i class="fas fa-envelope fa-3x  d-flex justify-content-center my-4"></i>
                                    
                                    <p class="d-flex justify-content-center">
                                        info@kuranga.co
