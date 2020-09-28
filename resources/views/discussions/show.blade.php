@@ -6,7 +6,9 @@
 <div class="card ">
   @include('partials.discussion-header')
     <div class="card-body ">
-        {{$discussion->title}}
+      <h3>{{$discussion->title}}</h3>
+      <img class="" src="{{ asset('cover_images/'.$discussion->cover_image) }}" alt="" style="width:100%">
+        
         <hr>
         {!!$discussion->content!!}
     </div>
@@ -45,9 +47,9 @@
   </div>
   <div class="form-group">
     <label for="content">Content</label>
-    <textarea class="form-control" id="summary-ckeditor" name="content"></textarea>
+    <textarea class="form-control" cols="5" rows="5" name="content"></textarea>
     </div>
-    <input type="submit" class="btn btn-sm btn-success" value="Add Comment">
+    <input type="submit" class="btn btn-sm btn-success"  value="Add Comment">
     </form>
   </div>
 </div>

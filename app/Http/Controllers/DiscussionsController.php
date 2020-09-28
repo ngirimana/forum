@@ -77,9 +77,7 @@ class DiscussionsController extends Controller
             $fileNameToStore = $fileName.'_'.time().'.'.$extension;
             //upload images
             $data->file('cover_image')->move(public_path('cover_images'), $fileNameToStore);
-
-           //$path=Storage::putFile('public/cover_images', $data->file($fileNameToStore));
-        //    $path = Storage::putFileAs('public/cover_images', $data->file('cover_image'));
+            //$path=$data->file('cover_image')->storeAs('public/cover_images',$fileNameToStore);
 
         }else{
             $fileNameToStore='noimage.jpg';

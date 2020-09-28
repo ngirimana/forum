@@ -48,6 +48,27 @@
                         <a href="{{route('discussions.index')}}?channel={{$channel->slug}}" class="nav-link navigator">  {{$channel->name}}</a>
                         </li>
                     @endforeach
+                    
+                        
+                    @auth
+                    <li class="nav-item dropdown">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle navigator" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            {{ Auth::user()->name }} <span class="caret"></span>
+                        </a>
+    
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                           
+                            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                         document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                            </a>
+    
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                        </div>
+                    </li>
+                    @endauth
                  
                     </ul>
                 </div>
@@ -100,7 +121,7 @@
                             <div class="card-body ">
                                 <div class="row">
                                     <div class="col-md-4 card-for-latest">
-                                        <img class="card-image" src="{{ asset('images/user.jpg') }}" alt="First slide">
+                                        <img class="card-image" src="{{ asset('cover_images/'.$latestDiscussion->cover_image) }}" alt="First slide">
                                     </div>
                                     <div class="col-md-8">
                                         <small>{{$latestDiscussion->created_at}}</small>
@@ -119,7 +140,7 @@
                     <a href="{{route('discussions.show',$discussion->slug)}}">
                     <div class="card">
                         <div class="card-header">
-                            <img class="discussion-card" src="{{ asset('images/user.jpg') }}" alt="First slide">
+                            <img class="discussion-card" src="{{ asset('cover_images/'.$latestDiscussion->cover_image) }}" alt="First slide">
                         </div>
                         <div class="card-body">
                             <small>{{$discussion->created_at}}</small>
