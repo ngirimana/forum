@@ -15,20 +15,12 @@ class ChannelTableSeeder extends Seeder
     public function run()
     {
         Channel::create([
-            'name'=>'React Native',
-            'slug'=>Str::slug('React Native')
+            'name'=>'Event',
+            'slug'=>Str::slug('Event')
         ]);
         Channel::create([
-            'name'=>'Nodejs',
-            'slug'=>Str::slug('Nodejs')
-        ]);
-        Channel::create([
-            'name'=>'React Js',
-            'slug'=>Str::slug('React Js')
-        ]);
-        Channel::create([
-            'name'=>'Angular Js',
-            'slug'=>Str::slug('Angular Js')
+            'name'=>'Training',
+            'slug'=>Str::slug('Training')
         ]);
     }
 }

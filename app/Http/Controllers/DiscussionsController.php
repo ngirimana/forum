@@ -98,19 +98,19 @@ class DiscussionsController extends Controller
         return redirect()->route('discussions.index');
     }
     public function upload(Request $request)
- {
-     if($request->hasFile('upload')) {
-         $originName = $request->file('upload')->getClientOriginalName();
-         $fileName = pathinfo($originName, PATHINFO_FILENAME);
-         $extension = $request->file('upload')->getClientOriginalExtension();
-         $fileName = $fileName.'_'.time().'.'.$extension;
+        {
+            if($request->hasFile('upload')) {
+            $originName = $request->file('upload')->getClientOriginalName();
+            $fileName = pathinfo($originName, PATHINFO_FILENAME);
+            $extension = $request->file('upload')->getClientOriginalExtension();
+            $fileName = $fileName.'_'.time().'.'.$extension;
         
-         $request->file('upload')->move(public_path('images'), $fileName);
+            $request->file('upload')->move(public_path('images'), $fileName);
    
-         $CKEditorFuncNum = $request->input('CKEditorFuncNum');
-         $url = asset('images/'.$fileName); 
-         $msg = 'Image uploaded successfully'; 
-         $response = "<script>window.parent.CKEDITOR.tools.callFunction($CKEditorFuncNum, '$url', '$msg')</script>";
+            $CKEditorFuncNum = $request->input('CKEditorFuncNum');
+            $url = asset('images/'.$fileName); 
+            $msg = 'Image uploaded successfully'; 
+            $response = "<script>window.parent.CKEDITOR.tools.callFunction($CKEditorFuncNum, '$url', '$msg')</script>";
                
          @header('Content-type: text/html; charset=utf-8'); 
          echo $response;
@@ -151,8 +151,8 @@ class DiscussionsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $data, Discussion $discussion)
-    {  
+    public function update(Request $data, Discussion $discussion){
+
         $singleDiscussion=Discussion::where('slug', $discussion->slug)->first();
         
         $singleDiscussion->title =$data['title'];

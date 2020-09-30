@@ -48,6 +48,9 @@
                         <a href="{{route('discussions.index')}}?channel={{$channel->slug}}" class="nav-link navigator">  {{$channel->name}}</a>
                         </li>
                     @endforeach
+                    <li class="nav-item ">
+                        <a href="{{route('gallery.create')}}" class="nav-link navigator"> Gallery</a>
+                    </li>
                     
                         
                     @auth

@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\DiscussionsController;
 use App\Http\Controllers\RepliesController;
+use App\Http\Controllers\GalleryController;
 use Illuminate\Support\Facades\Route;
+
 
 
 /*
@@ -20,10 +22,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::resource('discussions',DiscussionsController::class);
 Route::post('discussions/upload', [DiscussionsController::class,'upload'])->name('discussions.upload');
 Route::resource('discussions/{discussion}/replies',RepliesController::class);
-
+Route::resource('gallery',GalleryController::class);

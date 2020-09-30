@@ -14,7 +14,7 @@ class AddCoverImageToDiscussions extends Migration
     public function up()
     {
         Schema::table('discussions', function (Blueprint $table) {
-            $table->string('cover-image');
+            $table->string('cover_image');
             //
         });
     }
