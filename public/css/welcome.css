@@ -24,11 +24,12 @@ a:hover{
 }
 .contact-us{
     color: white !important;
-    background-color: #123f64 !important;
+    background-color: #1a6aac !important;
     
 }
 footer{
     background-color: white !important;
+    background-color: #123f64 !important;
     
 }
 .navigator{
@@ -36,7 +37,7 @@ footer{
     background-color: #123f64 !important;
 }
 .copy-right{
-    background-color: royalblue;
+    background-color: #123f64 !important;
     color: white;
 }
  

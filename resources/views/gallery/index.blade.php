@@ -49,7 +49,7 @@
                         </li>
                     @endforeach
                     <li class="nav-item ">
-                        <a href="{{route('gallery.index')}}" class="nav-link navigator"> Gallery</a>
+                        <a href="{{route('gallery.create')}}" class="nav-link navigator"> Gallery</a>
                     </li>
                     
                         
@@ -79,82 +79,26 @@
         </nav>
 
         <main class="container py-4">
+           
+            @if(count($galleryImages)>=1)
+           
             <div class="row">
-                <div id="carouselExampleIndicators" class="carousel slide col-md-8" data-ride="carousel">
-                    <ol class="carousel-indicators">
-                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                    </ol>
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img class="d-block w-100" src="{{ asset('slide_images/1.jpg') }}" alt="First slide">
-                            <div class="carousel-caption d-none d-md-block">
-                                <h5>First silse</h5>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="{{ asset('slide_images/2.jpeg') }}" alt="Second slide">
-                            <div class="carousel-caption d-none d-md-block">
-                                <h5>Second silse</h5>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="{{ asset('slide_images/3.jpg')}}" alt="Third slide">
-                            <div class="carousel-caption d-none d-md-block">
-                                <h5>Third silse</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
-              </div>
-                <div class="col-md-4 latest">
-                    <span class="font-weight-bold " >Latest storries</span>
-                    @foreach ($latestDiscussions as $latestDiscussion)
-                    <a href="{{route('discussions.show',$latestDiscussion->slug)}}">
-                        <div class="card mb-2 latest-story" ">
-                       
-                            <div class="card-body ">
-                                <div class="row">
-                                    <div class="col-md-4 card-for-latest">
-                                        <img class="card-image" src="{{ asset('cover_images/'.$latestDiscussion->cover_image) }}" alt="First slide">
-                                    </div>
-                                    <div class="col-md-8">
-                                        <small>{{$latestDiscussion->created_at}}</small>
-                                        <p>{!!$latestDiscussion->title!!}</p> 
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                    @endforeach
-                </div>
-            </div>
-            <div class="row">
-                @foreach ($discussions as $discussion)
-                <div class="col-md-3 my-4 ">
-                    <a href="{{route('discussions.show',$discussion->slug)}}">
+                @foreach ($galleryImages as $galleryImage)
+                <div class="col-md-4 mb-2 ">
                     <div class="card">
-                        <div class="card-header">
-                            <img class="discussion-card" src="{{ asset('cover_images/'.$latestDiscussion->cover_image) }}" alt="First slide">
-                        </div>
                         <div class="card-body">
-                            <small>{{$discussion->created_at}}</small>
-                            <p>{!!$discussion->title!!}</p> 
+                            <img class="" src="{{ asset('gallery_images/'.$galleryImage->image) }}" alt="" style="width:100%">
                         </div>
                     </div>
-                    </a>
+                   
                 </div>
-                @endforeach
-                {{$discussions->appends(['channel'=>request()->query('channel')])->links("pagination::bootstrap-4")}}
-            </div>
+                
+                
+            
+            @endforeach
+            @else
+             <p>No images In gallery</p>
+            @endif
 
             
         </main>

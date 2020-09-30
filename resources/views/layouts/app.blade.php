@@ -48,7 +48,7 @@
                             </li>
                         @endforeach
                         <li class="nav-item ">
-                            <a href="{{route('gallery.create')}}" class="nav-link navigator"> Gallery</a>
+                            <a href="{{route('gallery.index')}}" class="nav-link navigator"> Gallery</a>
                         </li>
                         @auth
                         <li class="nav-item dropdown">
@@ -80,6 +80,8 @@
                 <div class="col-md-4">
                     @auth
                 <a href="{{route('discussions.create')}}" style="width:100%; color:white;" class="btn btn-info my-2"> Add Discussion</a>
+                <a href="{{route('gallery.create')}}" style="width:100%; color:white;" class="btn btn-info my-2"> Gallery</a>
+           
                 @endauth
 
                     <div class="card">
@@ -108,10 +110,10 @@
                 @yield('content')
             </main>
         @endif
-        <footer >
+        <footer class="my-4">
             <div class="container my-4">
                 <div class="row my-4">
-                    <div class="col-md-6">
+                    <div class="col-md-6 my-4">
                         <div class="card"> 
                             <div class="card-header">Location</div>
                             <div class="card-body card-body-cascade text-center">
@@ -125,7 +127,7 @@
                         </div>
                         
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 my-4">
                         <div class="card"> 
                             <div class="card-header">Contact us</div>
                             <div class="card-body card-body-cascade text-center">
@@ -155,8 +157,8 @@
                     <section  class=" container ">
                         <div class="row   contact-us ">
                            <div class="col-md-4 my-4">
-                               <i class="fa fa-map-marker fa-3x d-flex justify-content-center my-4" aria-hidden="true"></i>
-                              <p class="d-flex justify-content-center">
+                                <i class="fa fa-map-marker fa-3x d-flex justify-content-center my-4" aria-hidden="true"></i>
+                                <p class="d-flex justify-content-center">
                                   KN 7 Ave ,Kigali Rwanda
                                </p>
                                </div>

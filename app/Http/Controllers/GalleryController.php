@@ -14,7 +14,9 @@ class GalleryController extends Controller
      */
     public function index()
     {
-        // return view('discussions.create');
+        $galleryImages= Image::orderBy('created_at','DESC')->paginate(30);
+        
+        return view('gallery\index')->with('galleryImages',$galleryImages);
     }
 
     /**
@@ -63,7 +65,7 @@ class GalleryController extends Controller
         
         // return $path;
         session()->flash('success','Photo added Successfully');
-        return redirect()->route('discussions.index');
+        return redirect()->route('gallery.index');
     }
 
     /**

@@ -7,7 +7,12 @@
         <div class="card mb-2">
             @include('partials.discussion-header')
             <div class="card-body ">
-            {!!$discussion->title!!}
+                <div class="row">
+                <div class="col-md-4">
+                    <img class="" src="{{ asset('cover_images/'.$discussion->cover_image) }}" style="width:100%" alt="">
+                </div>
+                  <div class="col-md-8"> {!!$discussion->title!!}</div>
+                </div>
             </div>
     
         </div>
