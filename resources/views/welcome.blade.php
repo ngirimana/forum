@@ -161,7 +161,7 @@
         <footer >
             <div class="container">
                 <div class="row my-4">
-                    <div class="col-md-6">
+                    <div class="col-md-6 my-4">
                         <div class="card"> 
                             <div class="card-header">Location</div>
                             <div class="card-body card-body-cascade text-center">
@@ -173,7 +173,7 @@
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="card"> 
+                        <div class="card my-4"> 
                             <div class="card-header">Contact us</div>
                             <div class="card-body card-body-cascade text-center">
                                 <form action="" method="POST" enctype="multipart/form-data">
