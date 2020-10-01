@@ -3,6 +3,7 @@
 use App\Http\Controllers\DiscussionsController;
 use App\Http\Controllers\RepliesController;
 use App\Http\Controllers\GalleryController;
+use App\Http\Controllers\MailController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -30,3 +31,4 @@ Route::resource('discussions',DiscussionsController::class);
 Route::post('discussions/upload', [DiscussionsController::class,'upload'])->name('discussions.upload');
 Route::resource('discussions/{discussion}/replies',RepliesController::class);
 Route::resource('gallery',GalleryController::class);
+Route::post('/send-email',[MailController::class,'sendEmail'])->name('send-email');;

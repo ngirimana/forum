@@ -163,7 +163,7 @@
                 <div class="row my-4">
                     <div class="col-md-6 my-4">
                         <div class="card"> 
-                            <div class="card-header">Location</div>
+                            <div class="card-header">Location On Map</div>
                             <div class="card-body card-body-cascade text-center">
                                 <!--Google map-->
                                 <div id="map-container-google-8" class="z-depth-1-half map-container-5" style="height: 300px">
@@ -176,16 +176,22 @@
                         <div class="card my-4"> 
                             <div class="card-header">Contact us</div>
                             <div class="card-body card-body-cascade text-center">
-                                <form action="" method="POST" enctype="multipart/form-data">
+                                @if($message=Session::get('success'))
+                                    <div class="alert alert-success alert-block">
+                                        <button type="button"class="close" data-dismis="alert">X</button>
+                                    <strong>{{$message}}</strong>
+                                    </div>
+                                @endif
+                                <form action="{{route('send-email')}}" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-group">
-                                        <input type="text" class="form-control" name="title" value="" placeholder="Enter your Full Name" required>
+                                        <input type="text" class="form-control" name="name" value="" placeholder="Enter your Full Name" required>
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" name="subject" value=""  placeholder="Enter Email" required>
+                                        <input type="text" class="form-control" name="email" value=""  placeholder="Enter Email" required>
                                     </div>
                                     <div class="form-group">
-                                        <textarea class="form-control" cols="10" rows="6" name="content" placeholder="Enter Your Message"></textarea>
+                                        <textarea class="form-control" cols="10" rows="6" name="message" placeholder="Enter Your Message" required></textarea>
                                     </div>
                                     <input type="submit" class="btn btn-success" value="Send Message">
                                 </form>
@@ -196,27 +202,25 @@
             </div>
             <div class="contact-us">
             <section  class=" container ">
-                <div class="row   contact-us ">
-                   <div class="col-md-4 my-4">
-                       <i class="fa fa-map-marker fa-3x d-flex justify-content-center  my-4" aria-hidden="true"></i>
-                      <p class="d-flex justify-content-center">
+                <div class="row my-4  contact-us mx-auto">
+                   <div class="col-md-4 d-flex justify-content-center">
+                        <i class="fa fa-map-marker fa-3x my-4" aria-hidden="true"></i>
+                        <p class="contact-text">
                           KN 7 Ave ,Kigali Rwanda
-                       </p>
-                       </div>
-                       <div class="col-md-4 my-4">
-                           <i class="fas fa-phone fa-3x d-flex justify-content-center  my-4"></i>
-                          
-                           <p class="d-flex justify-content-center">
-                               +250781475108
-                           </p>
-                       </div>
-                       <div class="col-md-4 my-4">
-                           <i class="fas fa-envelope fa-3x  d-flex justify-content-center  my-4"></i>
-                           
-                           <p class="d-flex justify-content-center">
-                               info@kuranga.co
-                           </p>
-                       </div>    
+                        </p>
+                    </div>
+                    <div class="col-md-4 d-flex justify-content-center">
+                        <i class="fas fa-phone fa-3x my-4"></i>
+                        <span class="contact-text">
+                            +250781475108
+                        </span>
+                    </div>
+                    <div class="col-md-4 d-flex justify-content-center">
+                        <i class="fas fa-envelope fa-3x   my-4"></i>
+                        <span class="contact-text">
+                            info@kuranga.co
+                        </span>
+                    </div>    
                 </div>
             </section>
             </div>

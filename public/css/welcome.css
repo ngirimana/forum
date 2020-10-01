@@ -40,5 +40,10 @@ footer{
     background-color: #123f64 !important;
     color: white;
 }
+.contact-text{
+    text-align: center !important;
+    margin-top: 35px !important;
+    margin-left: 10px;
+}
  
 

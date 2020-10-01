@@ -4,7 +4,7 @@
 
 
 <div class="card ">
-  @include('partials.discussion-header')
+  @include('partials.show-discussion-header')
     <div class="card-body ">
       <h3>{{$discussion->title}}</h3>
       <img class="" src="{{ asset('cover_images/'.$discussion->cover_image) }}" alt="" style="width:100%">

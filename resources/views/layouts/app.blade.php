@@ -131,19 +131,22 @@
                         <div class="card"> 
                             <div class="card-header">Contact us</div>
                             <div class="card-body card-body-cascade text-center">
-                                <form action="" method="POST" enctype="multipart/form-data">
+                                @if($message=Session::get('success'))
+                                    <div class="alert alert-success alert-block">
+                                        <button type="button"class="close" data-dismis="alert">X</button>
+                                    <strong>{{$message}}</strong>
+                                    </div>
+                                @endif
+                                <form action="{{route('send-email')}}" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-group">
-                                    
-                                        <input type="text" class="form-control" name="title" value="" placeholder="Enter your Full Name" required>
+                                        <input type="text" class="form-control" name="name" value="" placeholder="Enter your Full Name" required>
                                     </div>
                                     <div class="form-group">
-                                   
-                                        <input type="text" class="form-control" name="subject" value=""  placeholder="Enter Email" required>
+                                        <input type="text" class="form-control" name="email" value=""  placeholder="Enter Email" required>
                                     </div>
                                     <div class="form-group">
-                                    
-                                        <textarea class="form-control" cols="10" rows="6" name="content" placeholder="Enter Your Message"></textarea>
+                                        <textarea class="form-control" cols="10" rows="6" name="message" placeholder="Enter Your Message" required></textarea>
                                     </div>
                                     <input type="submit" class="btn btn-success" value="Send Message">
                                 </form>
