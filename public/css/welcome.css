@@ -45,5 +45,8 @@ footer{
     margin-top: 35px !important;
     margin-left: 10px;
 }
- 
+.show-text{
+    font-size: 24px;
+    font-weight: 500;
+}
 
