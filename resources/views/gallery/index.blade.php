@@ -15,10 +15,13 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/css/lightbox.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css">
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/welcome.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/lightbox.min.css') }}" rel="stylesheet">
     
     
 </head>
@@ -79,34 +82,33 @@
         </nav>
 
         <main class="container py-4">
-           
-            @if(count($galleryImages)>=1)
-           
-            <div class="row">
-                @foreach ($galleryImages as $galleryImage)
-                <div class="col-md-4 mb-2 ">
-                    <div class="card">
-                        <div class="card-body">
-                            <img class="" src="{{ asset('gallery_images/'.$galleryImage->image) }}" alt="" style="width:100%">
-                        </div>
-                    </div>
-                   
-                </div>
-                
-                
-            
-            @endforeach
-            @else
-             <p>No images In gallery</p>
-            @endif
+            <div class="photo-gallery">
+                <div class="container">
+                    @if(count($galleryImages)>=1) 
+                        <div class="row photos">
+                            @foreach ($galleryImages as $galleryImage)
+                            <div class="col-sm-6 col-md-4 col-lg-3 item">
+                                <a href="{{ asset('gallery_images/'.$galleryImage->image) }}" data-lightbox="photos">
+                                    <img class="img-fluid" src="{{ asset('gallery_images/'.$galleryImage->image) }}">
+                                </a>
+                            </div>
+                            @endforeach
+                            @else
+                            <div class=""></div>
+                            <p>No images In gallery</p>
+                            @endif
 
+                        
+                        </div>
+                </div>
+            </div>
             
         </main>
         <footer >
             <div class="container">
                 <div class="row my-4">
                     <div class="col-md-6">
-                        <div class="card"> 
+                        <div class="card my-4"> 
                             <div class="card-header">Location</div>
                             <div class="card-body card-body-cascade text-center">
                                 <!--Google map-->
@@ -117,7 +119,7 @@
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="card"> 
+                        <div class="card my-4"> 
                             <div class="card-header">Contact us</div>
                             <div class="card-body card-body-cascade text-center">
                                 <form action="" method="POST" enctype="multipart/form-data">
@@ -139,30 +141,28 @@
                 </div>
             </div>
             <div class="contact-us">
-            <section  class=" container ">
-                <div class="row   contact-us ">
-                   <div class="col-md-4 my-4">
-                       <i class="fa fa-map-marker fa-3x d-flex justify-content-center  my-4" aria-hidden="true"></i>
-                      <p class="d-flex justify-content-center">
-                          KN 7 Ave ,Kigali Rwanda
-                       </p>
-                       </div>
-                       <div class="col-md-4 my-4">
-                           <i class="fas fa-phone fa-3x d-flex justify-content-center  my-4"></i>
-                          
-                           <p class="d-flex justify-content-center">
-                               +250781475108
-                           </p>
-                       </div>
-                       <div class="col-md-4 my-4">
-                           <i class="fas fa-envelope fa-3x  d-flex justify-content-center  my-4"></i>
-                           
-                           <p class="d-flex justify-content-center">
-                               info@kuranga.co
-                           </p>
-                       </div>    
-                </div>
-            </section>
+                <section  class=" container ">
+                    <div class="row my-4  contact-us mx-auto">
+                        <div class="col-md-4 d-flex justify-content-center">
+                            <i class="fa fa-map-marker fa-3x my-4" aria-hidden="true"></i>
+                            <p class="contact-text">
+                            KN 7 Ave ,Kigali Rwanda
+                            </p>
+                        </div>
+                        <div class="col-md-4 d-flex justify-content-center">
+                            <i class="fas fa-phone fa-3x my-4"></i>
+                            <span class="contact-text">
+                                +250781475108
+                            </span>
+                        </div>
+                        <div class="col-md-4 d-flex justify-content-center">
+                            <i class="fas fa-envelope fa-3x   my-4"></i>
+                            <span class="contact-text">
+                                info@kuranga.co
+                            </span>
+                        </div>    
+                    </div>
+                </section>
             </div>
      
             <div class="d-flex justify-content-center copy-right"> <h3>  Kuranga &copy 2020</h3> </div>
@@ -170,7 +170,27 @@
         </footer>
         
     </div>
+    
     <script src="https://kit.fontawesome.com/1ae30b6763.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/js/lightbox.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.js"></script>
+
+    <script>
+    $(this).ekkoLightbox({
+                alwaysShowClose: true,
+                onShown: function() {
+                    console.log('Checking our the events huh?');
+                },
+                onNavigate: function(direction, itemIndex)
+                    console.log('Navigating '+direction+'. Current item: '+itemIndex);
+                }
+                
+            });
+    </script>
     <script src="{{ asset('js/app.js') }}" ></script>
     
    

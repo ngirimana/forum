@@ -201,28 +201,28 @@
                 </div>
             </div>
             <div class="contact-us">
-            <section  class=" container ">
-                <div class="row my-4  contact-us mx-auto">
-                   <div class="col-md-4 d-flex justify-content-center">
-                        <i class="fa fa-map-marker fa-3x my-4" aria-hidden="true"></i>
-                        <p class="contact-text">
-                          KN 7 Ave ,Kigali Rwanda
-                        </p>
+                <section  class=" container ">
+                    <div class="row my-4  contact-us mx-auto">
+                        <div class="col-md-4 d-flex justify-content-center">
+                            <i class="fa fa-map-marker fa-3x my-4" aria-hidden="true"></i>
+                            <p class="contact-text">
+                            KN 7 Ave ,Kigali Rwanda
+                            </p>
+                        </div>
+                        <div class="col-md-4 d-flex justify-content-center">
+                            <i class="fas fa-phone fa-3x my-4"></i>
+                            <span class="contact-text">
+                                +250781475108
+                            </span>
+                        </div>
+                        <div class="col-md-4 d-flex justify-content-center">
+                            <i class="fas fa-envelope fa-3x   my-4"></i>
+                            <span class="contact-text">
+                                info@kuranga.co
+                            </span>
+                        </div>    
                     </div>
-                    <div class="col-md-4 d-flex justify-content-center">
-                        <i class="fas fa-phone fa-3x my-4"></i>
-                        <span class="contact-text">
-                            +250781475108
-                        </span>
-                    </div>
-                    <div class="col-md-4 d-flex justify-content-center">
-                        <i class="fas fa-envelope fa-3x   my-4"></i>
-                        <span class="contact-text">
-                            info@kuranga.co
-                        </span>
-                    </div>    
-                </div>
-            </section>
+                </section>
             </div>
      
             <div class="d-flex justify-content-center copy-right"> <h3>  Kuranga &copy 2020</h3> </div>

@@ -19,6 +19,9 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/welcome.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/lightbox.min.css') }}" rel="stylesheet">
+    
+    
 </head>
 <body>
     <div id="app">
@@ -156,32 +159,30 @@
                 </div>
             </div>
 
-                <div class="contact-us">
-                    <section  class=" container ">
-                        <div class="row   contact-us ">
-                           <div class="col-md-4 my-4">
-                                <i class="fa fa-map-marker fa-3x d-flex justify-content-center my-4" aria-hidden="true"></i>
-                                <p class="d-flex justify-content-center">
-                                  KN 7 Ave ,Kigali Rwanda
-                               </p>
-                               </div>
-                               <div class="col-md-4 my-4">
-                                   <i class="fas fa-phone fa-3x d-flex justify-content-center my-4"></i>
-                                  
-                                   <p class="d-flex justify-content-center">
-                                       +250781475108
-                                   </p>
-                               </div>
-                               <div class="col-md-4 my-4">
-                                   <i class="fas fa-envelope fa-3x  d-flex justify-content-center my-4"></i>
-                                   
-                                   <p class="d-flex justify-content-center">
-                                       info@kuranga.co
-                                   </p>
-                               </div>    
+            <div class="contact-us">
+                <section  class=" container ">
+                    <div class="row my-4  contact-us mx-auto">
+                        <div class="col-md-4 d-flex justify-content-center">
+                            <i class="fa fa-map-marker fa-3x my-4" aria-hidden="true"></i>
+                            <p class="contact-text">
+                            KN 7 Ave ,Kigali Rwanda
+                            </p>
                         </div>
-                    </section>
+                        <div class="col-md-4 d-flex justify-content-center">
+                            <i class="fas fa-phone fa-3x my-4"></i>
+                            <span class="contact-text">
+                                +250781475108
+                            </span>
+                        </div>
+                        <div class="col-md-4 d-flex justify-content-center">
+                            <i class="fas fa-envelope fa-3x   my-4"></i>
+                            <span class="contact-text">
+                                info@kuranga.co
+                            </span>
+                        </div>    
                     </div>
+                </section>
+            </div>
              
                     <div class="d-flex justify-content-center copy-right"> <h3>  Kuranga &copy 2020</h3> </div>
             
@@ -196,6 +197,7 @@
     filebrowserUploadUrl: "{{route('discussions.upload', ['_token' => csrf_token() ])}}",
     filebrowserUploadMethod: 'form'
 });
+<script src="{{ asset('js/lightbox.min.js') }}" ></script>
 </script>
 
 </body>
