@@ -24,7 +24,8 @@ a:hover{
 }
 .contact-us{
     color: white !important;
-    background-color: #1a6aac !important;
+  
+    background-color: #123f64 !important;
     
 }
 footer{
@@ -37,12 +38,11 @@ footer{
     background-color: #123f64 !important;
 }
 .copy-right{
-    background-color: #123f64 !important;
+  background-color: #1a6aac !important;
     color: white;
 }
 .contact-text{
     text-align: center !important;
-    margin-top: 35px !important;
     margin-left: 10px;
 }
 .show-text{

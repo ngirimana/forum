@@ -204,19 +204,19 @@
                 <section  class=" container ">
                     <div class="row my-4  contact-us mx-auto">
                         <div class="col-md-4 d-flex justify-content-center">
-                            <i class="fa fa-map-marker fa-3x my-4" aria-hidden="true"></i>
+                            <i class="fa fa-map-marker fa-2x " aria-hidden="true"></i>
                             <p class="contact-text">
                             KN 7 Ave ,Kigali Rwanda
                             </p>
                         </div>
                         <div class="col-md-4 d-flex justify-content-center">
-                            <i class="fas fa-phone fa-3x my-4"></i>
+                            <i class="fas fa-phone fa-2x "></i>
                             <span class="contact-text">
                                 +250781475108
                             </span>
                         </div>
                         <div class="col-md-4 d-flex justify-content-center">
-                            <i class="fas fa-envelope fa-3x   my-4"></i>
+                            <i class="fas fa-envelope fa-2x"></i>
                             <span class="contact-text">
                                 info@kuranga.co
                             </span>
