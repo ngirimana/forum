@@ -54,6 +54,9 @@
                             <a href="{{route('gallery.index')}}" class="nav-link navigator"> Gallery</a>
                         </li>
                         @auth
+                        <li class="nav-item ">
+                            <a href="{{route('certificates.index')}}" class="nav-link navigator"> Certificates</a>
+                        </li>
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle navigator" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }} <span class="caret"></span>
@@ -83,7 +86,8 @@
                 <div class="col-md-4">
                     @auth
                 <a href="{{route('discussions.create')}}" style="width:100%; color:white;" class="btn btn-info my-2"> Add Discussion</a>
-                <a href="{{route('gallery.create')}}" style="width:100%; color:white;" class="btn btn-info my-2"> Gallery</a>
+                <a href="{{route('gallery.create')}}" style="width:100%; color:white;" class="btn btn-info my-2"> Add Gallery</a>
+                <a href="{{route('certificates.create')}}" style="width:100%; color:white;" class="btn btn-info my-2"> Add Certificate</a>
            
                 @endauth
 
@@ -165,7 +169,7 @@
                         <div class="col-md-4 d-flex justify-content-center">
                             <i class="fa fa-map-marker fa-2x" aria-hidden="true"></i>
                             <p class="contact-text">
-                            KN 7 Ave ,Kigali Rwanda
+                            KK 19 ave ,Kigali Rwanda
                             </p>
                         </div>
                         <div class="col-md-4 d-flex justify-content-center">

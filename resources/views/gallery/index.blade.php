@@ -57,6 +57,9 @@
                     
                         
                     @auth
+                    <li class="nav-item ">
+                        <a href="{{route('certificates.index')}}" class="nav-link navigator"> Certificates</a>
+                    </li>
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle navigator" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             {{ Auth::user()->name }} <span class="caret"></span>

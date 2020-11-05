@@ -15,10 +15,13 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/css/lightbox.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css">
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/welcome.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/lightbox.min.css') }}" rel="stylesheet">
     
     
 </head>
@@ -47,16 +50,15 @@
                         <li class="nav-item ">
                         <a href="{{route('discussions.index')}}?channel={{$channel->slug}}" class="nav-link navigator">  {{$channel->name}}</a>
                         </li>
+                        
                     @endforeach
                     <li class="nav-item ">
-                        <a href="{{route('gallery.index')}}" class="nav-link navigator"> Gallery</a>
+                        <a href="{{route('gallery.create')}}" class="nav-link navigator"> Gallery</a>
                     </li>
                     
-                        
+                    
                     @auth
-                    <li class="nav-item ">
-                        <a href="{{route('certificates.index')}}" class="nav-link navigator"> Certificates</a>
-                    </li>
+                    
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle navigator" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             {{ Auth::user()->name }} <span class="caret"></span>
@@ -82,91 +84,38 @@
         </nav>
 
         <main class="container py-4">
-            <div class="row">
-                <div id="carouselExampleIndicators" class="carousel slide col-md-8" data-ride="carousel">
-                    <ol class="carousel-indicators">
-                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                    </ol>
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img class="d-block w-100" src="{{ asset('slide_images/1.jpg') }}" alt="First slide">
-                            <div class="carousel-caption d-none d-md-block">
-                                <h5>First silse</h5>
+            <div class="photo-gallery">
+                <div class="container">
+                    @if(count($certificates)>=1) 
+                        <div class="row photos">
+                            @foreach ($certificates as $certificate)
+                            <div class="col-sm-6 col-md-4 col-lg-3 item">
+                            
+                                <a href="{{ asset('certificate_images/'.$certificate->certificate_image) }}" data-lightbox="photos">
+                                    <img class="img-fluid" src="{{ asset('certificate_images/'.$certificate->certificate_image) }}">
+                                <a href="{{route('certificates.show',$certificate->stud_id)}}" class="btn btn-info margin-top">view</a>
+                            
+                             </a>
                             </div>
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="{{ asset('slide_images/2.jpeg') }}" alt="Second slide">
-                            <div class="carousel-caption d-none d-md-block">
-                                <h5>Second silse</h5>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="{{ asset('slide_images/3.jpg')}}" alt="Third slide">
-                            <div class="carousel-caption d-none d-md-block">
-                                <h5>Third silse</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
-              </div>
-                <div class="col-md-4 latest">
-                    <span class="font-weight-bold " >Latest storries</span>
-                    @foreach ($latestDiscussions as $latestDiscussion)
-                    <a href="{{route('discussions.show',$latestDiscussion->slug)}}">
-                        <div class="card mb-2 latest-story" ">
-                       
-                            <div class="card-body ">
-                                <div class="row">
-                                    <div class="col-md-4 card-for-latest">
-                                        <img class="card-image" src="{{ asset('cover_images/'.$latestDiscussion->cover_image) }}" alt="First slide">
-                                    </div>
-                                    <div class="col-md-8">
-                                        <small>{{$latestDiscussion->created_at}}</small>
-                                        <p>{!!$latestDiscussion->title!!}</p> 
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                    @endforeach
-                </div>
-            </div>
-            <div class="row">
-                @foreach ($discussions as $discussion)
-                <div class="col-md-3 my-4 ">
-                    <a href="{{route('discussions.show',$discussion->slug)}}">
-                    <div class="card">
-                        <div class="card-header">
-                            <img class="discussion-card" src="{{ asset('cover_images/'.$latestDiscussion->cover_image) }}" alt="First slide">
-                        </div>
-                        <div class="card-body">
-                            <small>{{$discussion->created_at}}</small>
-                            <p>{!!$discussion->title!!}</p> 
-                        </div>
-                    </div>
-                    </a>
-                </div>
-                @endforeach
-                {{$discussions->appends(['channel'=>request()->query('channel')])->links("pagination::bootstrap-4")}}
-            </div>
+                            @endforeach
+                            {{$certificates->links("pagination::bootstrap-4")}}
+                            @else
+                            <div class=""></div>
+                            <p>No certificate found</p>
+                            @endif
 
+                        
+                        </div>
+                </div>
+            </div>
             
         </main>
         <footer >
             <div class="container">
                 <div class="row my-4">
-                    <div class="col-md-6 my-4">
-                        <div class="card"> 
-                            <div class="card-header">Location On Map</div>
+                    <div class="col-md-6">
+                        <div class="card my-4"> 
+                            <div class="card-header">Location</div>
                             <div class="card-body card-body-cascade text-center">
                                 <!--Google map-->
                                 <div id="map-container-google-8" class="z-depth-1-half map-container-5" style="height: 300px">
@@ -179,22 +128,16 @@
                         <div class="card my-4"> 
                             <div class="card-header">Contact us</div>
                             <div class="card-body card-body-cascade text-center">
-                                @if($message=Session::get('success'))
-                                    <div class="alert alert-success alert-block">
-                                        <button type="button"class="close" data-dismis="alert">X</button>
-                                    <strong>{{$message}}</strong>
-                                    </div>
-                                @endif
-                                <form action="{{route('send-email')}}" method="POST" enctype="multipart/form-data">
+                                <form action="" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-group">
-                                        <input type="text" class="form-control" name="name" value="" placeholder="Enter your Full Name" required>
+                                        <input type="text" class="form-control" name="title" value="" placeholder="Enter your Full Name" required>
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" name="email" value=""  placeholder="Enter Email" required>
+                                        <input type="text" class="form-control" name="subject" value=""  placeholder="Enter Email" required>
                                     </div>
                                     <div class="form-group">
-                                        <textarea class="form-control" cols="10" rows="6" name="message" placeholder="Enter Your Message" required></textarea>
+                                        <textarea class="form-control" cols="10" rows="6" name="content" placeholder="Enter Your Message"></textarea>
                                     </div>
                                     <input type="submit" class="btn btn-success" value="Send Message">
                                 </form>
@@ -207,7 +150,7 @@
                 <section  class=" container ">
                     <div class="row my-4  contact-us mx-auto">
                         <div class="col-md-4 d-flex justify-content-center">
-                            <i class="fa fa-map-marker fa-2x " aria-hidden="true"></i>
+                            <i class="fa fa-map-marker fa-2x" aria-hidden="true"></i>
                             <p class="contact-text">
                             KN 7 Ave ,Kigali Rwanda
                             </p>
@@ -219,7 +162,7 @@
                             </span>
                         </div>
                         <div class="col-md-4 d-flex justify-content-center">
-                            <i class="fas fa-envelope fa-2x"></i>
+                            <i class="fas fa-envelope fa-2x  "></i>
                             <span class="contact-text">
                                 info@kuranga.co
                             </span>
@@ -233,7 +176,27 @@
         </footer>
         
     </div>
+    
     <script src="https://kit.fontawesome.com/1ae30b6763.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/js/lightbox.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.js"></script>
+
+    <script>
+    $(this).ekkoLightbox({
+                alwaysShowClose: true,
+                onShown: function() {
+                    console.log('Checking our the events huh?');
+                },
+                onNavigate: function(direction, itemIndex)
+                    console.log('Navigating '+direction+'. Current item: '+itemIndex);
+                }
+                
+            });
+    </script>
     <script src="{{ asset('js/app.js') }}" ></script>
     
    

@@ -37,5 +37,11 @@
         
     
 </div>
+<script src="https://cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
+    <script>
+       CKEDITOR.replace( 'summary-ckeditor', {
+    filebrowserUploadUrl: "{{route('discussions.upload', ['_token' => csrf_token() ])}}",
+    filebrowserUploadMethod: 'form'
+       });</script>
 @endsection
 

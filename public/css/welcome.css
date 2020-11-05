@@ -94,3 +94,15 @@ footer{
     padding-bottom:30px;
   }
   
+  .margin-top{
+    margin-top: 10px;
+  }
+.text-margin{
+  margin-top: 10px;
+  margin-left: 16px;
+}
+.centered-cert{
+  width: 500px;
+  height: 500px;
+  margin: 10px auto;
+}

@@ -25,7 +25,7 @@ class DiscussionsController extends Controller
     {
         $discussions= Discussion::filterByChannels()->orderBy('created_at','DESC')->paginate(3);
         
-        return view('discussions\index')->with('discussions',$discussions);
+        return view('discussions.index')->with('discussions',$discussions);
 
     }
 

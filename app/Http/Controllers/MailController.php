@@ -24,7 +24,7 @@ class MailController extends Controller
             'email'=>$request->email,
             'message'=>$request->message
         );
-        Mail::to('chadrackngirimana@gmail.com')->cc($request->email)->send(new CustomerMail($data));
+        Mail::to('chadrackngirimana@gmail.com')->send(new CustomerMail($data));
         return back()->with('success','Thank you for contact us');
     }
 }
